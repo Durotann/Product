@@ -8,11 +8,14 @@ class Product extends StatelessWidget {
   final String title;
   final String image;
   final String price;
+
+  final VoidCallback press;
   const Product({
     Key? key,
     required this.title,
     required this.image,
     required this.price,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -22,35 +25,53 @@ class Product extends StatelessWidget {
       state,
     ) {
       if (state is ProductLoaded) {
-        return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.network(
+        return InkWell(
+          onTap: press,
+          child: Container(
+            width: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 150,
+                  child: Image.network(
                     'https://api.altyn-kovri.ru${image}',
-                    scale: 5.5,
                   ),
-                  SizedBox(
-                    height: 5,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "${title}",
+                  softWrap: true,
+                  style: TextStyle(
+                    fontSize: 15,
                   ),
-                  Text(
-                    "${title}",
-                    style: TextStyle(fontSize: 10, wordSpacing: 9),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "${price}",
+                  maxLines: 10,
+                  style: TextStyle(
+                    fontSize: 15,
                   ),
-                  Text(
-                    "${price}",
-                    style: TextStyle(fontSize: 10, wordSpacing: 9),
-                  ),
-                ],
-              ),
-            ));
+                ),
+              ],
+            ),
+          ),
+        );
       }
       return Scaffold(
         body: Center(child: CircularProgressIndicator()),

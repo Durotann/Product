@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/view/home_screen/bloc/bloc/home_screen_bloc.dart';
 import 'package:project/view/home_screen/widgets/card.dart';
+import 'package:project/view/product_description/presentation/product_description.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,17 +41,27 @@ class _HomeScreenState extends State<HomeScreen> {
             body: Column(
               children: [
                 Container(
+                  height: 300,
                   width: double.infinity,
-                  height: double.infinity,
-                  child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
                     itemCount: state.data.results.length,
                     itemBuilder: (context, index) {
-                      return Product(
-                        title: '${state.data.results[index].title}',
-                        image: '${state.data.results[index].image}',
-                        price: '${state.data.results[index].price}',
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Product(
+                          title: '${state.data.results[index].title}',
+                          image: '${state.data.results[index].image}',
+                          price: '${state.data.results[index].price}',
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProductInformation(
+                                          id: state.data.results[index].id,
+                                        )));
+                          },
+                        ),
                       );
                     },
                   ),
