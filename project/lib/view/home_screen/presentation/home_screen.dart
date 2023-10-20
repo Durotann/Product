@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/data/repository/basket_repository.dart';
 import 'package:project/view/home_screen/bloc/bloc/home_screen_bloc.dart';
 import 'package:project/view/home_screen/widgets/card.dart';
 import 'package:project/view/product_description/presentation/product_description.dart';
@@ -14,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     context.read<HomeScreenBloc>().add(ProductLoad());
+
     super.initState();
   }
 
