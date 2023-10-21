@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/data/repository/atributes_repository.dart';
 import 'package:project/data/repository/basket_repository.dart';
 import 'package:project/data/repository/description_repository.dart';
 import 'package:project/data/repository/main_repository.dart';
@@ -22,11 +23,11 @@ class MainApp extends StatelessWidget {
     final repository = Repository();
     final repository_description = RepositoryInformation();
     final repositoryaddbasket = PostRepository();
-
+    final atributerepository = AtributeRepository();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeScreenBloc(repository),
+          create: (context) => HomeScreenBloc(repository, atributerepository),
         ),
         BlocProvider(
           create: (context) => BasketBloc(repositoryaddbasket),

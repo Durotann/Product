@@ -2,8 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:project/data/repository/basket_repository.dart';
 
-import '../../../data/model/basket_model.dart';
-
 part 'basket_event.dart';
 part 'basket_state.dart';
 

@@ -44,62 +44,64 @@ class _BasketScreenState extends State<BasketScreen> {
                 ),
               ),
             ),
-            body: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 500,
-                  child: ListView.builder(
-                    itemCount: state.data['cart_lines'].length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 30),
-                        child: Container(
-                          height: 400,
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            children: [
-                              Image.network(
-                                "https://api.altyn-kovri.ru${state.data['cart_lines'][index]['item']['image']}",
-                                scale: 5,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                  "${state.data['cart_lines'][index]['item']['title']}"),
-                              Text(
-                                  "${state.data['cart_lines'][index]['item']['price']}"),
-                              Text(
-                                  "${state.data['cart_lines'][index]['size']}"),
-                            ],
+            body: SafeArea(
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 500,
+                    child: ListView.builder(
+                      itemCount: state.data['cart_lines'].length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 30),
+                          child: Container(
+                            height: 400,
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Column(
+                              children: [
+                                Image.network(
+                                  "https://api.altyn-kovri.ru${state.data['cart_lines'][index]['item']['image']}",
+                                  scale: 5,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                    "${state.data['cart_lines'][index]['item']['title']}"),
+                                Text(
+                                    "${state.data['cart_lines'][index]['price']}"),
+                                Text(
+                                    "${state.data['cart_lines'][index]['size']}"),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Container(
-                    width: 200,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                        child: Text(
-                      "общая цена: ${state.data['cart_lines'][0]['total']}",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ))),
-              ],
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Container(
+                      width: 200,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Center(
+                          child: Text(
+                        "общая цена: ${state.data['total']}",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ))),
+                ],
+              ),
             ),
           );
         }

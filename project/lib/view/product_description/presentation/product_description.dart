@@ -27,6 +27,7 @@ class _ProductInformationState extends State<ProductInformation> {
   String title = '';
   int value = 0;
   bool onPressed = false;
+  int variation_id = 0;
   int activeIndex = 0;
 
   @override
@@ -39,9 +40,14 @@ class _ProductInformationState extends State<ProductInformation> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return BlocBuilder<ProductDescriptionBloc, ProductDescriptionState>(
-        builder: (context, state) {
+        builder: (
+      context,
+      state,
+    ) {
       if (state is ProductDescriptionLoaded) {
         return Scaffold(
             appBar: AppBar(
@@ -212,6 +218,8 @@ class _ProductInformationState extends State<ProductInformation> {
                                       .toString();
                                   value =
                                       state.data.variations[index].stock_amount;
+                                  variation_id =
+                                      state.data.variations[index].id;
                                   atribute =
                                       state.data.properties[index].attribute;
                                   title = state.data.properties[index].title;
@@ -279,7 +287,7 @@ class _ProductInformationState extends State<ProductInformation> {
                               .read<ProductDescriptionBloc>()
                               .add(ProductDescriptionLoad(id: widget.id));
                           context.read<BasketBloc>().add(BasketAdd(
-                                variation_id: state.data.variations[0].id,
+                                variation_id: variation_id,
                                 product_id: state.data.id,
                               ));
                         },

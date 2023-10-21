@@ -6,8 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PostRepository {
   final dio = Dio();
-
+//First request
   Future getAddData(variation_id, product_id) async {
+    //Initialize SharedPreference
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final cartId = prefs.getString('card_id');
 
@@ -16,6 +17,7 @@ class PostRepository {
       'product': product_id,
       'quantity': 1
     };
+    //We check whether it is empty or not by the key
     if (cartId != null) {
       data['cart_id'] = cartId;
     }
@@ -31,6 +33,7 @@ class PostRepository {
     return body;
   }
 
+//Other request
   Future getData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final cartId = prefs.getString('card_id');

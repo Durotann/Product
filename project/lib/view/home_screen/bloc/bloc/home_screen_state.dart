@@ -10,7 +10,18 @@ class ProductLoading extends HomeScreenState {}
 
 class ProductLoaded extends HomeScreenState {
   final Product data;
+  final List<AtributModel> data1;
   ProductLoaded({
+    required this.data1,
     required this.data,
   });
 }
+
+class AtributeLoaded extends HomeScreenState {
+  final List<AtributModel> data1;
+  AtributeLoaded({
+    required this.data1,
+  });
+}
+
+class AtributeLoading extends HomeScreenState {}

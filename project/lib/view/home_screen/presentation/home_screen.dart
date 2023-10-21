@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/data/repository/basket_repository.dart';
 import 'package:project/view/home_screen/bloc/bloc/home_screen_bloc.dart';
 import 'package:project/view/home_screen/widgets/card.dart';
 import 'package:project/view/product_description/presentation/product_description.dart';
@@ -15,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     context.read<HomeScreenBloc>().add(ProductLoad());
+    context.read<HomeScreenBloc>().add(AtributeLoad());
 
     super.initState();
   }
@@ -22,26 +22,157 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeScreenBloc, HomeScreenState>(
-      builder: (context, state) {
-        if (state is ProductLoading) {
-          return Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        }
-        if (state is ProductLoaded) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(
-                "MainScreen",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+        builder: (context, state) {
+      if (state is ProductLoading) {
+        return const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        );
+      }
+      if (state is ProductLoaded) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              "MainScreen",
+              style: TextStyle(
+                color: Colors.black,
               ),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
             ),
-            body: Column(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+          body: SafeArea(
+            child: Column(
               children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'color',
+                                arg2: "${state.data1[1].properties[0].title}"));
+                          },
+                          child: Text(
+                            state.data1[1].properties[0].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'sizes',
+                                arg2: (state.data1[0].properties[1].title)));
+                          },
+                          child: Text(
+                            state.data1[0].properties[1].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'collection',
+                                arg2: "${state.data1[2].properties[0].title}"));
+                          },
+                          child: Text(
+                            state.data1[2].properties[0].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'structure',
+                                arg2: "${state.data1[3].properties[0].title}"));
+                          },
+                          child: Text(
+                            state.data1[3].properties[0].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'style',
+                                arg2: "${state.data1[4].properties[1].title}"));
+                          },
+                          child: Text(
+                            state.data1[4].properties[1].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'shape',
+                                arg2: "${state.data1[5].properties[1].title}"));
+                          },
+                          child: Text(
+                            state.data1[5].properties[1].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                    Container(
+                      width: 90,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: MaterialButton(
+                          onPressed: () {
+                            context.read<HomeScreenBloc>().add(ProductLoad(
+                                arg1: 'country',
+                                arg2: "${state.data1[6].properties[1].title}"));
+                          },
+                          child: Text(
+                            state.data1[6].properties[1].title,
+                            style: TextStyle(fontSize: 12),
+                          )),
+                    ),
+                  ],
+                ),
                 Container(
                   height: 300,
                   width: double.infinity,
@@ -70,14 +201,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          );
-        }
-        return Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
           ),
         );
-      },
-    );
+      }
+      print(state);
+      return Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    });
   }
 }
