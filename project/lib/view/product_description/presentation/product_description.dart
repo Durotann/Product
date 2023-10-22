@@ -220,9 +220,7 @@ class _ProductInformationState extends State<ProductInformation> {
                                       state.data.variations[index].stock_amount;
                                   variation_id =
                                       state.data.variations[index].id;
-                                  atribute =
-                                      state.data.properties[index].attribute;
-                                  title = state.data.properties[index].title;
+
                                   onPressed = true;
                                 });
                               },
@@ -243,6 +241,29 @@ class _ProductInformationState extends State<ProductInformation> {
                     child: Text(
                       "${state.data.description}",
                       style: TextStyle(fontSize: 10),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 70,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.data.properties.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                              width: 200,
+                              height: 100,
+                              color: Colors.blue,
+                              child: Center(
+                                  child: Text(
+                                      "${state.data.properties[index].attribute}: ${state.data.properties[index].title} "))),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(

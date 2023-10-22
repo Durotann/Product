@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/src/material/dropdown.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:project/data/model/propet_atribute_model.dart';
 part 'atribute_model.g.dart';
@@ -16,4 +17,6 @@ class AtributModel {
   factory AtributModel.fromJson(Map<String, dynamic> json) =>
       _$AtributModelFromJson(json);
   Map<String, dynamic> toJson() => _$AtributModelToJson(this);
+
+  map(DropdownMenuItem<Object> Function(dynamic e) param0) {}
 }
