@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+
 import 'package:project/data/model/atribute_model.dart';
-import 'package:project/data/model/atributelist_model.dart';
 
 class AtributeRepository {
   final dio = Dio();
@@ -14,6 +13,7 @@ class AtributeRepository {
     for (int i = 0; i < body.length; i++) {
       result.add(AtributModel.fromJson(body[i]));
     }
+
     return result;
   }
 }

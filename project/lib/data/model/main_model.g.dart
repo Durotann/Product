@@ -7,7 +7,7 @@ part of 'main_model.dart';
 // **************************************************************************
 
 Product _$ProductFromJson(Map<String, dynamic> json) => Product(
-      next: json['next'] as String,
+      next: json['next'] as String?,
       previous: json['previous'] as String?,
       count: json['count'] as int,
       page_number: json['page_number'] as int,

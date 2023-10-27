@@ -8,7 +8,7 @@ part 'main_model.g.dart';
 
 @JsonSerializable()
 class Product {
-  final String next;
+  final String? next;
   final String? previous;
   final int count;
   final int page_number;

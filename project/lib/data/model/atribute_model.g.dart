@@ -7,8 +7,8 @@ part of 'atribute_model.dart';
 // **************************************************************************
 
 AtributModel _$AtributModelFromJson(Map<String, dynamic> json) => AtributModel(
-      title: json['title'] as String,
-      query_arg: json['query_arg'] as String,
+      title: json['title'] as String?,
+      query_arg: json['query_arg'] as String?,
       properties: (json['properties'] as List<dynamic>)
           .map((e) => AtributeProperties.fromJson(e as Map<String, dynamic>))
           .toList(),

@@ -8,11 +8,11 @@ part of 'results_model.dart';
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
       id: json['id'] as int,
-      title: json['title'] as String,
-      price: json['price'] as String,
+      title: json['title'] as String?,
+      price: json['price'] as String?,
       sale_price: json['sale_price'] as int?,
-      image: json['image'] as String,
-      carpet_type: json['carpet_type'] as String,
+      image: json['image'] as String?,
+      carpet_type: json['carpet_type'] as String?,
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{

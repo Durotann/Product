@@ -5,7 +5,7 @@ part 'propet_atribute_model.g.dart';
 
 @JsonSerializable()
 class AtributeProperties {
-  final String title;
+  final String? title;
   final int count;
   AtributeProperties({
     required this.title,

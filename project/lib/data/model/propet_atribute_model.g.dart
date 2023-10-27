@@ -8,7 +8,7 @@ part of 'propet_atribute_model.dart';
 
 AtributeProperties _$AtributePropertiesFromJson(Map<String, dynamic> json) =>
     AtributeProperties(
-      title: json['title'] as String,
+      title: json['title'] as String?,
       count: json['count'] as int,
     );
 

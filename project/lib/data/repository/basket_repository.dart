@@ -42,8 +42,6 @@ class PostRepository {
         await dio.get("https://api.altyn-kovri.ru/api/cart/$cartId/");
 
     var body = response.data;
-    print(cartId);
-    print(body);
 
     return body;
   }

@@ -6,12 +6,12 @@ part 'results_model.g.dart';
 @JsonSerializable()
 class Result {
   final int id;
-  final String title;
-  final String price;
+  final String? title;
+  final String? price;
 
   final int? sale_price;
-  final String image;
-  final String carpet_type;
+  final String? image;
+  final String? carpet_type;
   Result({
     required this.id,
     required this.title,

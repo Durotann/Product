@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[0].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[0].properties[index].title,
+                                  ('${state.data1[0].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[1].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[1].properties[index].title,
+                                  ('${state.data1[1].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[2].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[2].properties[index].title,
+                                  ('${state.data1[2].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[3].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[3].properties[index].title,
+                                  ('${state.data1[3].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[4].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[4].properties[index].title,
+                                  ('${state.data1[4].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[5].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[5].properties[index].title,
+                                  ('${state.data1[5].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -262,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[6].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[6].properties[index].title,
+                                  ('${state.data1[6].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -294,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "${state.data1[7].properties[index].title}"));
                                 },
                                 child: Text(
-                                  state.data1[7].properties[index].title,
+                                  ('${state.data1[7].properties[index].title}'),
                                   style: TextStyle(fontSize: 12),
                                 )),
                           ),
@@ -334,7 +334,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         );
       }
-      print(state);
+
       return Scaffold(
         body: Center(
           child: CircularProgressIndicator(),

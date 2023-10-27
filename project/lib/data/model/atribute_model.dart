@@ -6,8 +6,8 @@ part 'atribute_model.g.dart';
 
 @JsonSerializable()
 class AtributModel {
-  final String title;
-  final String query_arg;
+  final String? title;
+  final String? query_arg;
   final List<AtributeProperties> properties;
   AtributModel({
     required this.title,
