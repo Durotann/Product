@@ -124,7 +124,7 @@ class _ProductInformationState extends State<ProductInformation> {
                                 itemCount: state.data.item_gallery.length,
                                 itemBuilder: (context, index, realIndex) {
                                   return Container(
-                                    width: 400,
+                                    width: 399,
                                     height: 257,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
