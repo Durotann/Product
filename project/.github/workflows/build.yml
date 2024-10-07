@@ -1,42 +1,35 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Dart
+# Note: In a yml each level is padded by 2 spaces
+name: Flutter
 
 on:
+  # Runs this action when you push on master
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
+  # Runs this when a PR against master is created
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  flutter_job:
+
+    # The machine, we can also use windows-latest or ubuntu-latest
+    # We are choosing macos-latest because we will be also building for iOS
+    runs-on: macos-latest
 
     steps:
+
+      # Clones the project on the machine
       - uses: actions/checkout@v4
 
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
+      # Installs flutter and related dependency on this machine
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # flutter-version: '3.16.8'
+          # ^ If you want to use a specific version of flutter
+      
+      # Fetches proj dependencies from pub
       - name: Install dependencies
         run: flutter pub get
-
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
-
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
-
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      - name: run build
-        run: flutter build apk
+          # ^ If you want to use a specific version of flutter
