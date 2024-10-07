@@ -21,7 +21,7 @@ class ProductInformation extends StatefulWidget {
 }
 
 class _ProductInformationState extends State<ProductInformation> {
-  final CarouselController carouselController = CarouselController();
+  // final carouselController = CarouselController();
   String text = '';
   String atribute = '';
   String title = '';
@@ -143,45 +143,45 @@ class _ProductInformationState extends State<ProductInformation> {
                                   );
                                 },
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  width: 150,
-                                  height: 24,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: state.data.item_gallery
-                                        .asMap()
-                                        .entries
-                                        .map((entry) {
-                                      return GestureDetector(
-                                        onTap: () => carouselController
-                                            .animateToPage(entry.key),
-                                        child: Container(
-                                          width: 10.0,
-                                          height: 10.0,
-                                          margin: const EdgeInsets.symmetric(
-                                              vertical: 8.0, horizontal: 4.0),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: (Theme.of(context)
-                                                              .brightness ==
-                                                          Brightness.dark
-                                                      ? Colors.white
-                                                      : Colors.black)
-                                                  .withOpacity(
-                                                      activeIndex == entry.key
-                                                          ? 0.9
-                                                          : 0.4)),
-                                        ),
-                                      );
-                                    }).toList(),
-                                  ),
-                                ),
-                              )
+                              // Padding(
+                              //   padding: const EdgeInsets.all(8.0),
+                              //   child: Container(
+                              //     width: 150,
+                              //     height: 24,
+                              //     decoration: BoxDecoration(
+                              //         color: Colors.white,
+                              //         borderRadius: BorderRadius.circular(5)),
+                              //     child: Row(
+                              //       mainAxisAlignment: MainAxisAlignment.center,
+                              //       children: state.data.item_gallery
+                              //           .asMap()
+                              //           .entries
+                              //           .map((entry) {
+                              //         return GestureDetector(
+                              //           onTap: () => carouselController
+                              //               .animateToPage(entry.key),
+                              //           child: Container(
+                              //             width: 10.0,
+                              //             height: 10.0,
+                              //             margin: const EdgeInsets.symmetric(
+                              //                 vertical: 8.0, horizontal: 4.0),
+                              //             decoration: BoxDecoration(
+                              //                 shape: BoxShape.circle,
+                              //                 color: (Theme.of(context)
+                              //                                 .brightness ==
+                              //                             Brightness.dark
+                              //                         ? Colors.white
+                              //                         : Colors.black)
+                              //                     .withOpacity(
+                              //                         activeIndex == entry.key
+                              //                             ? 0.9
+                              //                             : 0.4)),
+                              //           ),
+                              //         );
+                              //       }).toList(),
+                              //     ),
+                              //   ),
+                              // )
                             ]),
                           ],
                         ),
